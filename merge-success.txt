@@ -1,0 +1,144 @@
+Last login: Sun Aug  7 17:52:08 on ttys000
+work@192 ~ % cd desktop
+work@192 desktop % cd laptop
+work@192 laptop % git branch
+  apple
+* master
+  orange
+  strawberry
+work@192 laptop % git checkout strawberry
+Switched to branch 'strawberry'
+work@192 laptop % git status             
+On branch strawberry
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   M1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+work@192 laptop % git status
+On branch strawberry
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   M1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+work@192 laptop % git add .
+work@192 laptop % 
+work@192 laptop % git status
+On branch strawberry
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   M1.txt
+
+work@192 laptop % git commit -m "Strawberry branch ahead changes from master"  
+[strawberry e09d889] Strawberry branch ahead changes from master
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+work@192 laptop % git status                                                 
+On branch strawberry
+nothing to commit, working tree clean
+work@192 laptop % git push origin strawberry                                 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 350 bytes | 350.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:waqas44/merge-test.git
+   bf458fb..e09d889  strawberry -> strawberry
+work@192 laptop % git status                
+On branch strawberry
+nothing to commit, working tree clean
+work@192 laptop % git checkout master                                        
+Switched to branch 'master'
+work@192 laptop % git pull origin master
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 708 bytes | 354.00 KiB/s, done.
+From github.com:waqas44/merge-test
+ * branch            master     -> FETCH_HEAD
+   a5e6da1..d004fc5  master     -> origin/master
+Updating a5e6da1..d004fc5
+Fast-forward
+ M1.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+work@192 laptop % git checkout strawberry                                    
+Switched to branch 'strawberry'
+work@192 laptop % git status                
+On branch strawberry
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   M1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+work@192 laptop % git push origin strawberry
+Everything up-to-date
+work@192 laptop % git add .                                                  
+work@192 laptop % git commit -m "Strawberry branch ahead changes from master line 2"
+[strawberry 4c49ae5] Strawberry branch ahead changes from master line 2
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+work@192 laptop % git push origin strawberry
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 361 bytes | 361.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:waqas44/merge-test.git
+   e09d889..4c49ae5  strawberry -> strawberry
+work@192 laptop % git pull origin strawberry
+From github.com:waqas44/merge-test
+ * branch            strawberry -> FETCH_HEAD
+Already up to date.
+work@192 laptop % git status                
+On branch strawberry
+nothing to commit, working tree clean
+work@192 laptop % 
+work@192 laptop % git branch
+  apple
+  master
+  orange
+* strawberry
+work@192 laptop % git checkout master       
+Switched to branch 'master'
+work@192 laptop % git pull origin strawberry
+From github.com:waqas44/merge-test
+ * branch            strawberry -> FETCH_HEAD
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+Merge made by the 'recursive' strategy.
+ M1.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+work@192 laptop % git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+work@192 laptop % git push origin master    
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 326 bytes | 326.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:waqas44/merge-test.git
+   d004fc5..4ff6dcb  master -> master
+work@192 laptop % 
